@@ -18,11 +18,11 @@ export interface DeleteNoteAction {
     payload: object[]
 }
 
-export interface ArchiveNoteActionUpdateActive {
+export interface ArchiveNoteUpdateActiveAction {
     type: NoteActionTypes.ARCHIVE_NOTE_UPDATE_ACTIVE
     payload: object[]
 }
-export interface ArchiveNoteActionUpdateArchived {
+export interface ArchiveNoteUpdateArchivedAction {
     type: NoteActionTypes.ARCHIVE_NOTE_UPDATE_ARCHIVED
     payload: object[]
 }
@@ -35,8 +35,8 @@ export interface SubmitEditing {
 export type NoteAction =
     CreateNoteAction
     | DeleteNoteAction
-    | ArchiveNoteActionUpdateActive
-    | ArchiveNoteActionUpdateArchived
+    | ArchiveNoteUpdateActiveAction
+    | ArchiveNoteUpdateArchivedAction
     | SubmitEditing
 
 

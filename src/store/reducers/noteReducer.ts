@@ -11,8 +11,12 @@ const getAllDates = (content: string) => {
 const initialState: NoteState = {
     noteHeadings: ['Name', 'Creation Date', 'Category', 'Content', 'Dates', 'Buttons'],
 
-    activeNotes: [{id: 1, noteName: 'qwe', creationDate: '12', category: 2, content: '22/12/2020', dates: ''},
-            {id: 2, noteName: 'qwasdasde', creationDate: '12/1/1', category: 0, content: 'asd', dates: ''},],
+    activeNotes: [{id: 1, noteName: '1st note name', creationDate: new Date().toLocaleDateString().replace(/\./g, '/'), category: 2, content: '22/12/2020', dates: ''},
+            {id: 2, noteName: 'qwasdasde', creationDate:  new Date().toLocaleDateString().replace(/\./g, '/'), category: 0, content: '2nd content', dates: ''},
+        {id: 3, noteName: 'another note name', creationDate: new Date().toLocaleDateString().replace(/\./g, '/'), category: 1, content: '3nd content 12/2/2022', dates: ''},
+        {id: 4, noteName: 'more note', creationDate: new Date().toLocaleDateString().replace(/\./g, '/'), category: 1, content: '4nd 2/3/1993 content', dates: ''},
+        {id: 5, noteName: 'and more', creationDate: new Date().toLocaleDateString().replace(/\./g, '/'), category: 2, content: '5nd content', dates: ''},
+        {id: 6, noteName: 'and moreeeeee', creationDate: new Date().toLocaleDateString().replace(/\./g, '/'), category: 0, content: '6nd content', dates: ''},],
 
     archivedNotes: [],
 
