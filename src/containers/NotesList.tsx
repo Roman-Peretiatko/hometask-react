@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTypedSelector} from "../hooks/useTypedSelector";
-import TableDraft from "./TableDraft";
+import TableDraft from "../components/TableDraft";
 import {useDispatch} from "react-redux";
 import {NoteActionTypes} from "../store/types/note";
 import {EditActionTypes} from "../store/types/edit";

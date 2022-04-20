@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import {ArchiveRounded, DeleteRounded, EditRounded} from "@mui/icons-material";
-import "./TableDraft.css";
+import "../styles/TableDraft.css";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
 interface TableDraftProps {

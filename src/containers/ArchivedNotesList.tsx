@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Box, Button, Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/material";
-import TableDraft from "./TableDraft";
+import TableDraft from "../components/TableDraft";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {NoteActionTypes} from "../store/types/note";
 import {useDispatch} from "react-redux";
