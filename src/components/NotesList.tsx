@@ -8,15 +8,10 @@ import {EditActionTypes} from "../store/types/edit";
 const NotesList: React.FC = () => {
 
     let {noteHeadings, activeNotes, archivedNotes} = useTypedSelector(state => state.note)
-    let {open} = useTypedSelector(state => state.edit)
 
     const dispatch = useDispatch()
     const deleteNote = (id: number) => {
-        activeNotes = activeNotes.filter(note => {
-            if (note.id !== id) {
-                return note
-            }
-        })
+        activeNotes = activeNotes.filter(note => note.id !== id)
         dispatch({type: NoteActionTypes.DELETE_NOTE, payload: activeNotes})
     }
 

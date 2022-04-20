@@ -32,7 +32,7 @@ const AddNoteForm = () => {
         content: string
     }
 
-    const { register, handleSubmit } = useForm<NewNoteInputs>()
+    const { register, handleSubmit, reset } = useForm<NewNoteInputs>()
 
     const dispatch = useDispatch()
     const createNote: SubmitHandler<NewNoteInputs> = (data) => {
@@ -54,6 +54,7 @@ const AddNoteForm = () => {
             dates: getAllDates(data.content)
         }
         dispatch({type: NoteActionTypes.CREATE_NOTE, payload: newNote })
+        reset({noteName: '', category: 999, content: ''})
         setOpen(false)
     }
 

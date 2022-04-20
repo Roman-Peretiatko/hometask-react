@@ -41,6 +41,7 @@ const TableDraft: React.FC<TableDraftProps> = ({
     const tableStyles = {
         borderCollapse: 'separate',
         borderSpacing: '0px 10px',
+        tableLayout: 'fixed'
     }
 
     const {categoriesList} = useTypedSelector(state => state.note)
@@ -79,42 +80,40 @@ const TableDraft: React.FC<TableDraftProps> = ({
                                 {Object.keys(bodyItem).map(key => {
                                     if (key === 'category') {
                                         return (
-                                            <TableCell style={{
-                                                whiteSpace: "nowrap",
-                                                overflow: "hidden",
-                                                textOverflow: "ellipsis",
-
-                                            }}>{categoriesList[bodyItem[key]]}</TableCell>
+                                            <TableCell>{categoriesList[bodyItem[key]]}</TableCell>
                                         )
                                     }
                                     if (key !== 'id' && key !== 'isActive') {
                                         return (
-                                            <TableCell style={{
-                                                whiteSpace: "nowrap",
-                                                overflow: "hidden",
-                                                textOverflow: "ellipsis",
+                                            <TableCell>
+                                                <div style={{
+                                                    whiteSpace: 'nowrap',
+                                                    overflowX: 'auto',
+                                                }}>
+                                                    {bodyItem[key]}
+                                                </div>
+                                            </TableCell>
 
-                                            }}>{bodyItem[key]}</TableCell>
                                         )
                                     }
                                 })}
-                                {bodyItem?.id ? ( bodyItem.isActive ? <TableCell style={{padding: 0}}>
-                                        <IconButton onClick={() => editNote?.(bodyItem)}>
-                                            <EditRounded></EditRounded>
-                                        </IconButton>
-                                        <IconButton onClick={() => archiveNote?.(bodyItem.id)}>
-                                            <ArchiveRounded></ArchiveRounded>
-                                        </IconButton>
-                                        <IconButton onClick={() => deleteNote?.(bodyItem.id)}>
-                                            <DeleteRounded></DeleteRounded>
-                                        </IconButton>
-                                    </TableCell>
-                                    :
-                                    <TableCell>
-                                        <Button onClick={() => unarchiveNote?.(bodyItem.id)}>Unarchive</Button>
-                                    </TableCell>
-                                ):
-                                <></>
+                                {bodyItem?.id ? (bodyItem.isActive ? <TableCell style={{padding: 0}}>
+                                                <IconButton onClick={() => editNote?.(bodyItem)}>
+                                                    <EditRounded></EditRounded>
+                                                </IconButton>
+                                                <IconButton onClick={() => archiveNote?.(bodyItem.id)}>
+                                                    <ArchiveRounded></ArchiveRounded>
+                                                </IconButton>
+                                                <IconButton onClick={() => deleteNote?.(bodyItem.id)}>
+                                                    <DeleteRounded></DeleteRounded>
+                                                </IconButton>
+                                            </TableCell>
+                                            :
+                                            <TableCell>
+                                                <Button onClick={() => unarchiveNote?.(bodyItem.id)}>Unarchive</Button>
+                                            </TableCell>
+                                    ) :
+                                    <></>
                                 }
                             </TableRow>
                         )
