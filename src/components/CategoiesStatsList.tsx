@@ -2,7 +2,7 @@ import React from 'react';
 import TableDraft from "./TableDraft";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
-const CategoiesStatsList: React.FC = () => {
+const CategoriesStatsList: React.FC = () => {
 
     let {categoriesList, activeNotes, archivedNotes} = useTypedSelector(state => state.note)
 
@@ -23,4 +23,4 @@ const CategoiesStatsList: React.FC = () => {
     );
 };
 
-export default CategoiesStatsList;
+export default CategoriesStatsList;
