@@ -5,6 +5,7 @@ import AddNoteForm from "./components/AddNoteForm";
 import NotesList from "./components/NotesList";
 import EditNoteForm from "./components/EditNoteForm";
 import ArchivedNotesList from "./components/ArchivedNotesList";
+import CategoiesStatsList from "./components/CategoiesStatsList";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <EditNoteForm/>
             <ArchivedNotesList />
 
+            <CategoiesStatsList />
         </Container>
     );
 }

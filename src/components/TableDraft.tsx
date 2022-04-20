@@ -98,7 +98,7 @@ const TableDraft: React.FC<TableDraftProps> = ({
                                         )
                                     }
                                 })}
-                                {bodyItem?.id && bodyItem.isActive ? <TableCell style={{padding: 0}}>
+                                {bodyItem?.id ? ( bodyItem.isActive ? <TableCell style={{padding: 0}}>
                                         <IconButton onClick={() => editNote?.(bodyItem)}>
                                             <EditRounded></EditRounded>
                                         </IconButton>
@@ -113,6 +113,8 @@ const TableDraft: React.FC<TableDraftProps> = ({
                                     <TableCell>
                                         <Button onClick={() => unarchiveNote?.(bodyItem.id)}>Unarchive</Button>
                                     </TableCell>
+                                ):
+                                <></>
                                 }
                             </TableRow>
                         )

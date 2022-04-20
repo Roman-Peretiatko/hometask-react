@@ -53,7 +53,6 @@ const AddNoteForm = () => {
             content: data.content,
             dates: getAllDates(data.content)
         }
-        console.log(newNote)
         dispatch({type: NoteActionTypes.CREATE_NOTE, payload: newNote })
         setOpen(false)
     }
