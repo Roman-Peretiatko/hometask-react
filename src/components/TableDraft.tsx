@@ -1,5 +1,5 @@
 import React from 'react';
-import {IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {Button, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import {ArchiveRounded, DeleteRounded, EditRounded} from "@mui/icons-material";
 import "./TableDraft.css";
 import {useTypedSelector} from "../hooks/useTypedSelector";
@@ -10,7 +10,8 @@ interface TableDraftProps {
     flag: string
     deleteNote?: (id: number) => void
     archiveNote?: (id: number) => void
-    editNote?: (id: object) => void
+    editNote?: (id: number) => void
+    unarchiveNote?: (id: number) => void
 }
 
 const TableDraft: React.FC<TableDraftProps> = ({
@@ -19,7 +20,8 @@ const TableDraft: React.FC<TableDraftProps> = ({
                                                    flag,
                                                    deleteNote,
                                                    archiveNote,
-                                                   editNote
+                                                   editNote,
+                                                   unarchiveNote
                                                }) => {
 
     const headingRowStyles = {
@@ -85,7 +87,7 @@ const TableDraft: React.FC<TableDraftProps> = ({
                                             }}>{categoriesList[bodyItem[key]]}</TableCell>
                                         )
                                     }
-                                    if (key !== 'id') {
+                                    if (key !== 'id' && key !== 'isActive') {
                                         return (
                                             <TableCell style={{
                                                 whiteSpace: "nowrap",
@@ -96,17 +98,22 @@ const TableDraft: React.FC<TableDraftProps> = ({
                                         )
                                     }
                                 })}
-                                {bodyItem?.id ? <TableCell style={{padding: 0}}>
-                                    <IconButton onClick={() => editNote?.(bodyItem)}>
-                                        <EditRounded></EditRounded>
-                                    </IconButton>
-                                    <IconButton onClick={() => archiveNote?.(bodyItem.id)}>
-                                        <ArchiveRounded></ArchiveRounded>
-                                    </IconButton>
-                                    <IconButton onClick={() => deleteNote?.(bodyItem.id)}>
-                                        <DeleteRounded></DeleteRounded>
-                                    </IconButton>
-                                </TableCell> : ''}
+                                {bodyItem?.id && bodyItem.isActive ? <TableCell style={{padding: 0}}>
+                                        <IconButton onClick={() => editNote?.(bodyItem)}>
+                                            <EditRounded></EditRounded>
+                                        </IconButton>
+                                        <IconButton onClick={() => archiveNote?.(bodyItem.id)}>
+                                            <ArchiveRounded></ArchiveRounded>
+                                        </IconButton>
+                                        <IconButton onClick={() => deleteNote?.(bodyItem.id)}>
+                                            <DeleteRounded></DeleteRounded>
+                                        </IconButton>
+                                    </TableCell>
+                                    :
+                                    <TableCell>
+                                        <Button onClick={() => unarchiveNote?.(bodyItem.id)}>Unarchive</Button>
+                                    </TableCell>
+                                }
                             </TableRow>
                         )
                     })}

@@ -5,6 +5,7 @@ export enum NoteActionTypes {
     DELETE_NOTE = 'DELETE_NOTE',
     ARCHIVE_NOTE_UPDATE_ACTIVE = 'ARCHIVE_NOTE_UPDATE_ACTIVE',
     ARCHIVE_NOTE_UPDATE_ARCHIVED = 'ARCHIVE_NOTE_UPDATE_ARCHIVED',
+    ARCHIVE_NOTE_SET_ISACTIVE = 'ARCHIVE_NOTE_SET_IS_ACTIVE',
     SUBMIT_EDITING = 'SUBMIT_EDITING'
 }
 
@@ -27,6 +28,11 @@ export interface ArchiveNoteUpdateArchivedAction {
     payload: object[]
 }
 
+export interface ArchiveNoteSetIsActiveAction {
+    type: NoteActionTypes.ARCHIVE_NOTE_SET_ISACTIVE,
+    payload: number
+}
+
 export interface SubmitEditing {
     type: NoteActionTypes.SUBMIT_EDITING
     payload: any
@@ -37,6 +43,7 @@ export type NoteAction =
     | DeleteNoteAction
     | ArchiveNoteUpdateActiveAction
     | ArchiveNoteUpdateArchivedAction
+    | ArchiveNoteSetIsActiveAction
     | SubmitEditing
 
 

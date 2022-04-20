@@ -46,6 +46,7 @@ const AddNoteForm = () => {
 
         const newNote = {
             id: Date.now(),
+            isActive: true,
             noteName: data.noteName,
             creationDate: new Date().toLocaleDateString().replace(/\./g, '/'),
             category: data.category,
@@ -58,7 +59,7 @@ const AddNoteForm = () => {
     }
 
     return (
-        <>
+        <Box textAlign="right" mt={3}>
             <Button color="primary" variant="contained"  onClick={handleClickOpen}  >Add Note</Button>
 
             <Dialog open={open} onClose={handleClose}>
@@ -100,7 +101,7 @@ const AddNoteForm = () => {
                     <Button onClick={handleClose}>Cancel</Button>
                 </DialogActions>
             </Dialog>
-        </>
+        </Box>
     );
 };
 

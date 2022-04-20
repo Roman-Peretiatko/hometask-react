@@ -25,6 +25,7 @@ export type EditAction = SetOpenTrue | SetOpenFalse | SetNote
 
 interface Note {
     id: number,
+    isActive: boolean
     noteName: string,
     creationDate: string,
     category: number,

@@ -27,11 +27,12 @@ const NotesList: React.FC = () => {
             }
             archivedNotes.push(note)
         })
+        dispatch({type: NoteActionTypes.ARCHIVE_NOTE_SET_ISACTIVE, payload: id})
         dispatch({type: NoteActionTypes.ARCHIVE_NOTE_UPDATE_ACTIVE, payload: activeNotes })
         dispatch({type: NoteActionTypes.ARCHIVE_NOTE_UPDATE_ARCHIVED, payload: archivedNotes })
     }
 
-    const editNote = (note: object) => {
+    const editNote = (note: number) => {
         dispatch({type: EditActionTypes.SET_OPEN_TRUE, payload: true})
         dispatch({type: EditActionTypes.SET_NOTE, payload: note})
     }

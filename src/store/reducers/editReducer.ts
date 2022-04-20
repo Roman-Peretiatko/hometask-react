@@ -4,6 +4,7 @@ const initialState: EditState = {
     open: false,
     note: {
         id: 0,
+        isActive: true,
         noteName: '',
         creationDate: '',
         category: 0,

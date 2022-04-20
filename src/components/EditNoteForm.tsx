@@ -42,6 +42,7 @@ const EditNoteForm: React.FC = () => {
     const handleConfirm = (data: EditNoteInputs) => {
         const noteToEdit = {
             id: note.id,
+            isActive: note.isActive,
             noteName: data.noteName,
             creationDate: note.creationDate,
             category: data.category,
