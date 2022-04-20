@@ -12,6 +12,7 @@ const CategoiesStatsList: React.FC = () => {
         }).length
         return active
     }
+
     const getArchivedAmount = (categoryIndex: number): number => {
         const archived = archivedNotes.filter(note => {
             if (note.category === categoryIndex) return note
