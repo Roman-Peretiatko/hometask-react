@@ -53,7 +53,5 @@ export interface NoteState {
     activeNotes: any[]
     archivedNotes: any[]
     categoriesList: string[]
-    activeNotesAmount: number[]
-    archivedNotesAmount: number[]
 }
 

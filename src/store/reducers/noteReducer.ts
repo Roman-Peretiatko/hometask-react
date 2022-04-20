@@ -21,10 +21,6 @@ const initialState: NoteState = {
     archivedNotes: [],
 
     categoriesList: ['Task', 'Random Thought', 'Idea'],
-
-    activeNotesAmount: [0, 0, 0],
-
-    archivedNotesAmount: [0, 0, 0]
 }
 
 for (const note of initialState.activeNotes) {
@@ -32,22 +28,6 @@ for (const note of initialState.activeNotes) {
     note.dates = allDates
 }
 
-const getActiveAmount = (categoryIndex: number): number => {
-    const active = initialState.activeNotes.filter(note => {
-        if (note.category === initialState.categoriesList[categoryIndex]) return note
-    }).length
-    return active
-}
-const getArchivedAmount = (categoryIndex: number): number => {
-    const archived = initialState.archivedNotes.filter(note => {
-        if (note.category === initialState.categoriesList[categoryIndex]) return note
-    }).length
-    return archived
-}
-
-initialState.categoriesList.map((category, index) => {
-    initialState.activeNotesAmount[index] = getActiveAmount(index)
-})
 
 export const noteReducer = (state = initialState, action: NoteAction): NoteState => {
     switch (action.type) {
