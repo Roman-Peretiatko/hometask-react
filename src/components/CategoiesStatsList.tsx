@@ -7,13 +7,11 @@ const CategoiesStatsList: React.FC = () => {
     let {categoriesList, activeNotes, archivedNotes} = useTypedSelector(state => state.note)
 
     const getActiveAmount = (categoryIndex: number): number => {
-        const active = activeNotes.filter(note => note.category === categoryIndex).length
-        return active
+        return activeNotes.filter(note => note.category === categoryIndex).length
     }
 
     const getArchivedAmount = (categoryIndex: number): number => {
-        const archived = archivedNotes.filter(note => note.category === categoryIndex).length
-        return archived
+        return archivedNotes.filter(note => note.category === categoryIndex).length
     }
 
     const categoriesBody = [...categoriesList.map((category, index) => {
